@@ -4,13 +4,16 @@
   "main": "index.js",
   "scripts": {
     "start": "lite-server",
-    "build": "tsc"
+    "build": "tsc && cp src/index.html src/styles.css dist/"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "keywords": ["calculator", "typescript", "web"],
+  "author": "Tu Nombre",
+  "license": "MIT",
+  "description": "Calculadora básica desarrollada con TypeScript",
   "dependencies": {
     "lite-server": "^2.6.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
   }
 }
