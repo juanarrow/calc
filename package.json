@@ -3,17 +3,25 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "lite-server",
-    "build": "tsc && cp src/index.html src/styles.css dist/"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "npm run dev"
   },
-  "keywords": ["calculator", "typescript", "web"],
+  "keywords": [
+    "calculator",
+    "typescript",
+    "web"
+  ],
   "author": "Tu Nombre",
   "license": "MIT",
   "description": "Calculadora básica desarrollada con TypeScript",
   "dependencies": {
-    "lite-server": "^2.6.1"
+    "lite-server": "^2.6.1",
+    "rxjs": "^7.8.2"
   },
   "devDependencies": {
-    "typescript": "^5.0.0"
+    "typescript": "^5.0.0",
+    "vite": "^7.1.7"
   }
 }
