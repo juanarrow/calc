@@ -17,7 +17,6 @@
   "license": "MIT",
   "description": "Calculadora básica desarrollada con TypeScript",
   "dependencies": {
-    "lite-server": "^2.6.1",
     "rxjs": "^7.8.2"
   },
   "devDependencies": {
