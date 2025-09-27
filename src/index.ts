@@ -1,3 +1,5 @@
+import { fromEvent, debounceTime, map } from 'rxjs';
+
 let currentInput: string = '0';
 let operator: string = '';
 let previousInput: string = '';
@@ -109,5 +111,41 @@ function setupEventListeners(): void {
             }
         });
     }
+
+    setupKeyboardEvents();
+}
+
+function setupKeyboardEvents(): void {
+    const keyboardEvents$ = fromEvent<KeyboardEvent>(document, 'keydown');
+    
+    keyboardEvents$
+        .pipe(
+            debounceTime(50),
+            map(event => event.key)
+        )
+        .subscribe(key => {
+            switch (key) {
+                case '0': case '1': case '2': case '3': case '4':
+                case '5': case '6': case '7': case '8': case '9':
+                case '.':
+                    appendToDisplay(key);
+                    break;
+                case '+': case '-': case '*': case '/':
+                    appendToDisplay(key);
+                    break;
+                case 'Enter':
+                case '=':
+                    calculate();
+                    break;
+                case 'Escape':
+                case 'c':
+                case 'C':
+                    clearDisplay();
+                    break;
+                case 'Backspace':
+                    deleteLast();
+                    break;
+            }
+        });
 }
 
